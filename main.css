@@ -70,6 +70,39 @@ body {
   overflow: hidden;
 }
 
+.project-card .card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+.project-card .card-header h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  width: 100%;
+}
+
+.project-card .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.project-card .arrow {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.project-card:not(.collapsed) .arrow {
+  transform: translateY(-50%) rotate(180deg); /* arrow points up when expanded */
+}
+
 .project-card.collapsed .card-content {
   max-height: 0;
   opacity: 0;
@@ -78,17 +111,6 @@ body {
     max-height 0.4s ease,
     opacity 0.4s ease,
     padding 0.4s ease;
-}
-
-.project-card .card-header h2 {
-  margin-bottom: 0.5rem;
-  font-size: 1.5rem;
-}
-
-.project-card .tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
 }
 
 .tag {
@@ -116,7 +138,7 @@ body {
 
 .project-card .card-content {
   margin-top: 1rem;
-  max-height: 500px; /* will be overridden when collapsed */
+  max-height: 500px; /* overridden when collapsed */
   opacity: 1;
   transition:
     max-height 0.4s ease,
