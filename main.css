@@ -149,16 +149,18 @@ code {
   opacity: 0;
   padding: 0;
   transition:
-    max-height 0.4s ease,
+    max-height 5s ease,
     opacity 0.4s ease,
     padding 0.4s ease;
 }
 
 .project-card .card-content {
   margin-top: 1rem;
+  overflow: hidden;
+  max-height: 100000px;
   opacity: 1;
   transition:
-    max-height 0.4s ease,
+    max-height 10s ease,
     opacity 0.4s ease,
     padding 0.4s ease;
 }
