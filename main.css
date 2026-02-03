@@ -81,26 +81,34 @@ code {
   background: #1e293b;
   border-radius: 12px;
   margin: 2rem 0;
-  padding: 1.5rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
   overflow: hidden;
 }
 
-.project-card .card-header {
+.project-card.collapsed {
+  cursor: pointer;
+}
+
+/* ---------- CARD HEADER ---------- */
+.card-header-wrapper {
+  padding: 1.5rem;
+  cursor: pointer;
+}
+
+.card-header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   position: relative;
-  cursor: pointer;
 }
 
-.project-card .card-header h2 {
-  margin-bottom: 0.5rem;
+.card-header h2 {
+  margin-bottom: 1rem;
   font-size: 1.5rem;
   width: 100%;
 }
 
+/* ---------- TAGS ---------- */
 .project-card .tags {
   display: flex;
   flex-wrap: wrap;
@@ -131,6 +139,7 @@ code {
   vertical-align: middle;
 }
 
+/* ---------- ARROW ---------- */
 .project-card .arrow {
   position: absolute;
   right: 0;
@@ -141,30 +150,41 @@ code {
 }
 
 .project-card:not(.collapsed) .arrow {
-  transform: translateY(-50%) rotate(180deg); /* arrow points up when expanded */
+  transform: translateY(-50%) rotate(180deg);
 }
 
-.project-card.collapsed .card-content {
-  max-height: 0;
-  opacity: 0;
-  padding: 0;
-  transition:
-    max-height 5s ease,
-    opacity 0.4s ease,
-    padding 0.4s ease;
+/* ---------- COLLAPSIBLE CONTENT ---------- */
+.card-content-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s ease;
 }
 
-.project-card .card-content {
-  margin-top: 1rem;
+.card-content {
   overflow: hidden;
-  max-height: 100000px;
-  opacity: 1;
-  transition:
-    max-height 10s ease,
-    opacity 0.4s ease,
-    padding 0.4s ease;
 }
 
+.project-card:not(.collapsed) .card-content-wrapper {
+  grid-template-rows: 1fr;
+  padding: 0 1.5rem 1.5rem;
+}
+
+.project-card.collapsed .card-content-wrapper {
+  padding: 0 1.5rem;
+}
+
+/* ---------- CONTENT FADE ---------- */
+.project-card.collapsed .card-content {
+  opacity: 0;
+  transition: opacity 0.1s ease;
+}
+
+.project-card:not(.collapsed) .card-content {
+  opacity: 1;
+  transition: opacity 0.1s ease 0.1s;
+}
+
+/* ---------- CARD CONTENT ---------- */
 .card-content p {
   text-align: justify;
 }
