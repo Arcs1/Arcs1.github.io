@@ -21,6 +21,11 @@ body {
   min-height: 100vh;
 }
 
+object {
+  max-height: 24px;
+  max-width: 24px;
+}
+
 a {
   color: #38bdf8;
 }
