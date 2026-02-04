@@ -96,8 +96,20 @@ code {
 
 /* ---------- CARD HEADER ---------- */
 .card-header-wrapper {
+  background: none;
+  border: none;
   padding: 1.5rem;
+  width: 100%;
+  text-align: left;
   cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+.card-header-wrapper:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 2px white;
+  border-radius: 12px;
 }
 
 .card-header {
